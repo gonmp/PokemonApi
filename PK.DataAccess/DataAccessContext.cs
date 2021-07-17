@@ -79,7 +79,7 @@ namespace PK.DataAccess
                     entityType.Name,
                     x =>
                     {
-                        x.Property("Name").HasColumnType("varchar(50)");
+                        x.Property("Name").HasColumnType("varchar(50)").IsRequired();
                     });
             }
         }
