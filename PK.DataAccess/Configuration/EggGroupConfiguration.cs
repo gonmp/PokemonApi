@@ -10,6 +10,9 @@ namespace PK.DataAccess.Configuration
         {
             builder.ToTable("EggGroups");
 
+            builder.HasIndex(x => x.Name)
+                .IsUnique();
+
             builder.HasMany(x => x.Pokemon)
                 .WithOne(x => x.EggGroup)
                 .HasForeignKey(x => x.EggGroupId);
