@@ -15,6 +15,9 @@ namespace PK.DataAccess.Configuration
         {
             builder.ToTable("Colors");
 
+            builder.HasIndex(x => x.Name)
+                .IsUnique();
+
             builder.HasMany(x => x.PokemonWithNewColor)
                 .WithOne(x => x.NewColor)
                 .HasForeignKey(x => x.NewColorId);
