@@ -10,8 +10,8 @@ using PK.DataAccess;
 namespace PK.DataAccess.Migrations
 {
     [DbContext(typeof(DataAccessContext))]
-    [Migration("20210717052738_PopulatePokemonWithFirstNinePokemon")]
-    partial class PopulatePokemonWithFirstNinePokemon
+    [Migration("20210717063317_ModifyTypesAddUniqueNameConstraint")]
+    partial class ModifyTypesAddUniqueNameConstraint
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -579,6 +579,10 @@ namespace PK.DataAccess.Migrations
                         .HasColumnType("varchar(50)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique()
+                        .HasFilter("[Name] IS NOT NULL");
 
                     b.ToTable("Types");
                 });

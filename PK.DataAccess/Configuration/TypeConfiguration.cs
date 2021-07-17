@@ -10,6 +10,9 @@ namespace PK.DataAccess.Configuration
         {
             builder.ToTable("Types");
 
+            builder.HasIndex(x => x.Name)
+                .IsUnique();
+
             builder.HasMany(x => x.PokemonWithPrimaryType)
                 .WithOne(x => x.PrimaryType)
                 .HasForeignKey(x => x.PrimaryTypeId);
