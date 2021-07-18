@@ -24,11 +24,11 @@ namespace PK.Common.Models
         public ICollection<Attack> Attacks { get; set; }
         public ICollection<PokemonAbility> Abilities { get; set; }
         public ICollection<PokemonGender> Genders { get; set; }
-        public Guid OldColorId { get; set; }
-        public Color OldColor { get; set; }
-        public Guid NewColorId { get; set; }
-        public Color NewColor { get; set; }
-        public Guid EggGroupId { get; set; }
-        public EggGroup EggGroup { get; set; }
+        public Guid ColorId { get; set; }
+        public Color Color { get; set; }
+        public Guid EggGroup1Id { get; set; }
+        public EggGroup EggGroup1 { get; set; }
+        public Guid EggGroup2Id { get; set; }
+        public EggGroup EggGroup2 { get; set; }
     }
 }

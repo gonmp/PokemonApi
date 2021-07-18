@@ -18,13 +18,9 @@ namespace PK.DataAccess.Configuration
             builder.HasIndex(x => x.Name)
                 .IsUnique();
 
-            builder.HasMany(x => x.PokemonWithNewColor)
-                .WithOne(x => x.NewColor)
-                .HasForeignKey(x => x.NewColorId);
-
-            builder.HasMany(x => x.PokemonWithOldColor)
-                .WithOne(x => x.OldColor)
-                .HasForeignKey(x => x.OldColorId);
+            builder.HasMany(x => x.PokemonWithColor)
+                .WithOne(x => x.Color)
+                .HasForeignKey(x => x.ColorId);
         }
     }
 }

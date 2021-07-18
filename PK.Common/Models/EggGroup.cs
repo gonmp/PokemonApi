@@ -9,6 +9,7 @@ namespace PK.Common.Models
 {
     public class EggGroup : NamedEntity
     {
-        public ICollection<Pokemon> Pokemon { get; set; }
+        public ICollection<Pokemon> PokemonWithEggGroup1 { get; set; }
+        public ICollection<Pokemon> PokemonWithEggGroup2 { get; set; }
     }
 }

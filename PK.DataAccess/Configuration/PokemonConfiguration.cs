@@ -42,22 +42,24 @@ namespace PK.DataAccess.Configuration
             builder.Property(x => x.Wight)
                 .HasColumnType("float");
 
-            builder.HasOne(x => x.EggGroup)
-                .WithMany(x => x.Pokemon)
-                .HasForeignKey(x => x.EggGroupId);
+            builder.HasOne(x => x.EggGroup1)
+                .WithMany(x => x.PokemonWithEggGroup1)
+                .HasForeignKey(x => x.EggGroup1Id)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasOne(x => x.EggGroup2)
+                .WithMany(x => x.PokemonWithEggGroup2)
+                .HasForeignKey(x => x.EggGroup2Id)
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(x => x.Generation)
                 .WithMany(x => x.Pokemon)
-                .HasForeignKey(x => x.GenerationId);
-
-            builder.HasOne(x => x.NewColor)
-                .WithMany(x => x.PokemonWithNewColor)
-                .HasForeignKey(x => x.NewColorId)
+                .HasForeignKey(x => x.GenerationId)
                 .OnDelete(DeleteBehavior.NoAction);
 
-            builder.HasOne(x => x.OldColor)
-                .WithMany(x => x.PokemonWithOldColor)
-                .HasForeignKey(x => x.OldColorId)
+            builder.HasOne(x => x.Color)
+                .WithMany(x => x.PokemonWithColor)
+                .HasForeignKey(x => x.ColorId)
                 .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(x => x.PrimaryType)

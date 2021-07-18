@@ -13,9 +13,13 @@ namespace PK.DataAccess.Configuration
             builder.HasIndex(x => x.Name)
                 .IsUnique();
 
-            builder.HasMany(x => x.Pokemon)
-                .WithOne(x => x.EggGroup)
-                .HasForeignKey(x => x.EggGroupId);
+            builder.HasMany(x => x.PokemonWithEggGroup1)
+                .WithOne(x => x.EggGroup1)
+                .HasForeignKey(x => x.EggGroup1Id);
+
+            builder.HasMany(x => x.PokemonWithEggGroup2)
+                .WithOne(x => x.EggGroup2)
+                .HasForeignKey(x => x.EggGroup2Id);
         }
     }
 }
