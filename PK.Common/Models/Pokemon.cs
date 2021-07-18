@@ -28,7 +28,7 @@ namespace PK.Common.Models
         public Color Color { get; set; }
         public Guid EggGroup1Id { get; set; }
         public EggGroup EggGroup1 { get; set; }
-        public Guid EggGroup2Id { get; set; }
+        public Guid? EggGroup2Id { get; set; }
         public EggGroup EggGroup2 { get; set; }
     }
 }
