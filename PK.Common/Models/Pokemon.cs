@@ -21,7 +21,7 @@ namespace PK.Common.Models
         public Type SecondaryType { get; set; }
         public Guid GenerationId { get; set; }
         public Generation Generation { get; set; }
-        public ICollection<Attack> Attacks { get; set; }
+        public ICollection<PokemonAttack> Attacks { get; set; }
         public ICollection<PokemonAbility> Abilities { get; set; }
         public ICollection<PokemonGender> Genders { get; set; }
         public Guid ColorId { get; set; }
