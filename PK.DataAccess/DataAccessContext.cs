@@ -66,6 +66,7 @@ namespace PK.DataAccess
                     x =>
                     {
                         x.HasKey("Id");
+                        x.Property("Id").ValueGeneratedNever();
                     });
             }
         }
