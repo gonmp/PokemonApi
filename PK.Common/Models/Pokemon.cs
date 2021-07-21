@@ -15,20 +15,20 @@ namespace PK.Common.Models
         public int HitPoints { get; set; }
         public float Wight { get; set; }
         public float Height { get; set; }
-        public Guid PrimaryTypeId { get; set; }
+        public int PrimaryTypeId { get; set; }
         public Type PrimaryType { get; set; }
-        public Guid? SecondaryTypeId { get; set; }
+        public int SecondaryTypeId { get; set; }
         public Type SecondaryType { get; set; }
-        public Guid GenerationId { get; set; }
+        public int GenerationId { get; set; }
         public Generation Generation { get; set; }
         public ICollection<PokemonAttack> Attacks { get; set; }
         public ICollection<PokemonAbility> Abilities { get; set; }
         public ICollection<PokemonGender> Genders { get; set; }
-        public Guid ColorId { get; set; }
+        public int ColorId { get; set; }
         public Color Color { get; set; }
-        public Guid EggGroup1Id { get; set; }
+        public int EggGroup1Id { get; set; }
         public EggGroup EggGroup1 { get; set; }
-        public Guid? EggGroup2Id { get; set; }
+        public int EggGroup2Id { get; set; }
         public EggGroup EggGroup2 { get; set; }
     }
 }

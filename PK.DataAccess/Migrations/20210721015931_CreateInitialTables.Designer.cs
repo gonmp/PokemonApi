@@ -10,8 +10,8 @@ using PK.DataAccess;
 namespace PK.DataAccess.Migrations
 {
     [DbContext(typeof(DataAccessContext))]
-    [Migration("20210717064529_PopulateGenerations")]
-    partial class PopulateGenerations
+    [Migration("20210721015931_CreateInitialTables")]
+    partial class CreateInitialTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,11 +23,11 @@ namespace PK.DataAccess.Migrations
 
             modelBuilder.Entity("AbilityGeneration", b =>
                 {
-                    b.Property<Guid>("AbilitiesId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("AbilitiesId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("GenerationsId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("GenerationsId")
+                        .HasColumnType("int");
 
                     b.HasKey("AbilitiesId", "GenerationsId");
 
@@ -38,10 +38,10 @@ namespace PK.DataAccess.Migrations
 
             modelBuilder.Entity("PK.Common.Models.Ability", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Effect")
                         .HasColumnType("varchar(100)");
@@ -57,16 +57,16 @@ namespace PK.DataAccess.Migrations
 
             modelBuilder.Entity("PK.Common.Models.Attack", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("Accuracy")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("CategoryId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Effect")
                         .HasColumnType("varchar(100)");
@@ -77,9 +77,6 @@ namespace PK.DataAccess.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("varchar(50)");
-
-                    b.Property<Guid?>("PokemonId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Power")
                         .HasColumnType("int");
@@ -93,14 +90,12 @@ namespace PK.DataAccess.Migrations
                     b.Property<int>("Target")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("TypeId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("TypeId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
-
-                    b.HasIndex("PokemonId");
 
                     b.HasIndex("TypeId");
 
@@ -109,10 +104,10 @@ namespace PK.DataAccess.Migrations
 
             modelBuilder.Entity("PK.Common.Models.Color", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -120,15 +115,18 @@ namespace PK.DataAccess.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.ToTable("Colors");
                 });
 
             modelBuilder.Entity("PK.Common.Models.DamageCategory", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -141,10 +139,10 @@ namespace PK.DataAccess.Migrations
 
             modelBuilder.Entity("PK.Common.Models.EggGroup", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -152,21 +150,24 @@ namespace PK.DataAccess.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.ToTable("EggGroups");
                 });
 
             modelBuilder.Entity("PK.Common.Models.Evolution", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<Guid>("EvolutionPokemonId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("EvolutionPokemonId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("PreEvolutionPokemonId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("PreEvolutionPokemonId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -179,13 +180,13 @@ namespace PK.DataAccess.Migrations
 
             modelBuilder.Entity("PK.Common.Models.EvolutionByLevel", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<Guid>("EvolutionId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("EvolutionId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Level")
                         .HasColumnType("int");
@@ -199,13 +200,13 @@ namespace PK.DataAccess.Migrations
 
             modelBuilder.Entity("PK.Common.Models.Game", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<Guid>("GenerationId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("GenerationId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -220,10 +221,10 @@ namespace PK.DataAccess.Migrations
 
             modelBuilder.Entity("PK.Common.Models.Gender", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -236,10 +237,10 @@ namespace PK.DataAccess.Migrations
 
             modelBuilder.Entity("PK.Common.Models.Generation", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -252,20 +253,20 @@ namespace PK.DataAccess.Migrations
 
             modelBuilder.Entity("PK.Common.Models.MoveMachine", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<Guid>("AttackId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("AttackId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("varchar(50)");
 
-                    b.Property<Guid>("TypeId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("TypeId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -278,10 +279,10 @@ namespace PK.DataAccess.Migrations
 
             modelBuilder.Entity("PK.Common.Models.MoveMachineType", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Code")
                         .HasColumnType("varchar(2)");
@@ -297,19 +298,19 @@ namespace PK.DataAccess.Migrations
 
             modelBuilder.Entity("PK.Common.Models.PokedexDescription", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
                         .HasColumnType("varchar(100)");
 
-                    b.Property<Guid>("GameId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("GameId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("PokemonId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("PokemonId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -322,22 +323,28 @@ namespace PK.DataAccess.Migrations
 
             modelBuilder.Entity("PK.Common.Models.Pokemon", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("Attack")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ColorId")
                         .HasColumnType("int");
 
                     b.Property<int>("Defense")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("EggGroupId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("EggGroup1Id")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("GenerationId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("EggGroup2Id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("GenerationId")
+                        .HasColumnType("int");
 
                     b.Property<double>("Height")
                         .HasColumnType("float");
@@ -352,17 +359,11 @@ namespace PK.DataAccess.Migrations
                     b.Property<int>("NationalIndex")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("NewColorId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("PrimaryTypeId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("OldColorId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("PrimaryTypeId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("SecondaryTypeId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("SecondaryTypeId")
+                        .HasColumnType("int");
 
                     b.Property<int>("SpecialAttack")
                         .HasColumnType("int");
@@ -378,13 +379,13 @@ namespace PK.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EggGroupId");
+                    b.HasIndex("ColorId");
+
+                    b.HasIndex("EggGroup1Id");
+
+                    b.HasIndex("EggGroup2Id");
 
                     b.HasIndex("GenerationId");
-
-                    b.HasIndex("NewColorId");
-
-                    b.HasIndex("OldColorId");
 
                     b.HasIndex("PrimaryTypeId");
 
@@ -395,25 +396,25 @@ namespace PK.DataAccess.Migrations
 
             modelBuilder.Entity("PK.Common.Models.PokemonAbility", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<Guid>("AbilityId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("AbilityId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid?>("AbilityId1")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int?>("AbilityId1")
+                        .HasColumnType("int");
 
                     b.Property<bool>("IsHiddenAbility")
                         .HasColumnType("bit");
 
-                    b.Property<Guid>("PokemonId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("PokemonId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid?>("PokemonId1")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int?>("PokemonId1")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -430,25 +431,25 @@ namespace PK.DataAccess.Migrations
 
             modelBuilder.Entity("PK.Common.Models.PokemonAttack", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<Guid>("AttackId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("AttackId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid?>("AttackId1")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int?>("AttackId1")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("GenerationId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("GenerationId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("PokemonId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("PokemonId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("TypeId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("TypeId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -467,16 +468,16 @@ namespace PK.DataAccess.Migrations
 
             modelBuilder.Entity("PK.Common.Models.PokemonAttackByLevel", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("LevelObtained")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("PokemonAttackId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("PokemonAttackId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -487,16 +488,16 @@ namespace PK.DataAccess.Migrations
 
             modelBuilder.Entity("PK.Common.Models.PokemonAttackByMoveMachine", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<Guid>("MoveMachineId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("MoveMachineId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("PokemonAttackId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("PokemonAttackId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -509,16 +510,16 @@ namespace PK.DataAccess.Migrations
 
             modelBuilder.Entity("PK.Common.Models.PokemonAttackByTutor", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<Guid>("GameId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("GameId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("PokemonAttackId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("PokemonAttackId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -531,10 +532,10 @@ namespace PK.DataAccess.Migrations
 
             modelBuilder.Entity("PK.Common.Models.PokemonAttackType", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -547,22 +548,22 @@ namespace PK.DataAccess.Migrations
 
             modelBuilder.Entity("PK.Common.Models.PokemonGender", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<Guid>("GenderId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("GenderId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid?>("GenderId1")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int?>("GenderId1")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("PokemonId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("PokemonId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid?>("PokemonId1")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int?>("PokemonId1")
+                        .HasColumnType("int");
 
                     b.Property<double>("Rate")
                         .HasColumnType("float");
@@ -582,10 +583,10 @@ namespace PK.DataAccess.Migrations
 
             modelBuilder.Entity("PK.Common.Models.Type", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -621,10 +622,6 @@ namespace PK.DataAccess.Migrations
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
-
-                    b.HasOne("PK.Common.Models.Pokemon", null)
-                        .WithMany("Attacks")
-                        .HasForeignKey("PokemonId");
 
                     b.HasOne("PK.Common.Models.Type", "Type")
                         .WithMany("Attacks")
@@ -718,27 +715,27 @@ namespace PK.DataAccess.Migrations
 
             modelBuilder.Entity("PK.Common.Models.Pokemon", b =>
                 {
-                    b.HasOne("PK.Common.Models.EggGroup", "EggGroup")
-                        .WithMany("Pokemon")
-                        .HasForeignKey("EggGroupId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                    b.HasOne("PK.Common.Models.Color", "Color")
+                        .WithMany("PokemonWithColor")
+                        .HasForeignKey("ColorId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("PK.Common.Models.EggGroup", "EggGroup1")
+                        .WithMany("PokemonWithEggGroup1")
+                        .HasForeignKey("EggGroup1Id")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("PK.Common.Models.EggGroup", "EggGroup2")
+                        .WithMany("PokemonWithEggGroup2")
+                        .HasForeignKey("EggGroup2Id")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("PK.Common.Models.Generation", "Generation")
                         .WithMany("Pokemon")
                         .HasForeignKey("GenerationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PK.Common.Models.Color", "NewColor")
-                        .WithMany("PokemonWithNewColor")
-                        .HasForeignKey("NewColorId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.HasOne("PK.Common.Models.Color", "OldColor")
-                        .WithMany("PokemonWithOldColor")
-                        .HasForeignKey("OldColorId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
@@ -751,15 +748,16 @@ namespace PK.DataAccess.Migrations
                     b.HasOne("PK.Common.Models.Type", "SecondaryType")
                         .WithMany("PokemonWithSecondaryType")
                         .HasForeignKey("SecondaryTypeId")
-                        .OnDelete(DeleteBehavior.NoAction);
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
-                    b.Navigation("EggGroup");
+                    b.Navigation("Color");
+
+                    b.Navigation("EggGroup1");
+
+                    b.Navigation("EggGroup2");
 
                     b.Navigation("Generation");
-
-                    b.Navigation("NewColor");
-
-                    b.Navigation("OldColor");
 
                     b.Navigation("PrimaryType");
 
@@ -812,7 +810,7 @@ namespace PK.DataAccess.Migrations
                         .IsRequired();
 
                     b.HasOne("PK.Common.Models.Pokemon", "Pokemon")
-                        .WithMany()
+                        .WithMany("Attacks")
                         .HasForeignKey("PokemonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -920,9 +918,7 @@ namespace PK.DataAccess.Migrations
 
             modelBuilder.Entity("PK.Common.Models.Color", b =>
                 {
-                    b.Navigation("PokemonWithNewColor");
-
-                    b.Navigation("PokemonWithOldColor");
+                    b.Navigation("PokemonWithColor");
                 });
 
             modelBuilder.Entity("PK.Common.Models.DamageCategory", b =>
@@ -932,7 +928,9 @@ namespace PK.DataAccess.Migrations
 
             modelBuilder.Entity("PK.Common.Models.EggGroup", b =>
                 {
-                    b.Navigation("Pokemon");
+                    b.Navigation("PokemonWithEggGroup1");
+
+                    b.Navigation("PokemonWithEggGroup2");
                 });
 
             modelBuilder.Entity("PK.Common.Models.Gender", b =>

@@ -8,11 +8,11 @@ namespace PK.Common.Models
     {
         public string Effect { get; set; }
         public int PowerPoints { get; set; }
-        public Guid TypeId { get; set; }
+        public int TypeId { get; set; }
         public Type Type { get; set; }
         public int Power { get; set; }
         public int Accuracy { get; set; }
-        public Guid CategoryId { get; set; }
+        public int CategoryId { get; set; }
         public DamageCategory Category { get; set; }
         public bool IsContactAttack { get; set; }
         public int Target { get; set; }

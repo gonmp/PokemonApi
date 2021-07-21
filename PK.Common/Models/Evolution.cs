@@ -9,9 +9,9 @@ namespace PK.Common.Models
 {
     public class Evolution : BaseEntity
     {
-        public Guid PreEvolutionPokemonId { get; set; }
+        public int PreEvolutionPokemonId { get; set; }
         public Pokemon PreEvolutionPokemon { get; set; }
-        public Guid EvolutionPokemonId { get; set; }
+        public int EvolutionPokemonId { get; set; }
         public Pokemon EvolutionPokemon { get; set; }
     }
 }

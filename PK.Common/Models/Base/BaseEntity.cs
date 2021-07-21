@@ -8,6 +8,6 @@ namespace PK.Common.Models.Base
 {
     public class BaseEntity
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }
