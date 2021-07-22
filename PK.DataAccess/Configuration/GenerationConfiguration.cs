@@ -9,6 +9,11 @@ namespace PK.DataAccess.Configuration
         public void Configure(EntityTypeBuilder<Generation> builder)
         {
             builder.ToTable("Generations");
+
+            builder.HasOne(x => x.MainRegion)
+                .WithMany()
+                .HasForeignKey(x => x.MainRegionId)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

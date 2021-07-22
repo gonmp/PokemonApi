@@ -10,28 +10,16 @@ namespace PK.DataAccess
     {
         private readonly IConfiguration _configuration;
 
-        public DbSet<Ability> Abilities { get; set; }
-        public DbSet<Attack> Attacks { get; set; }
-        public DbSet<Color> Colors { get; set; }
-        public DbSet<DamageCategory> DamageCategories { get; set; }
-        public DbSet<EggGroup> EggGroups { get; set; }
-        public DbSet<EvolutionByLevel> EvolutionsByLevel { get; set; }
-        public DbSet<Evolution> Evolutions { get; set; }
-        public DbSet<Game> Games { get; set; }
-        public DbSet<Gender> Genders { get; set; }
+        public DbSet<GenerationName> GenerationNames { get; set; }
         public DbSet<Generation> Generations { get; set; }
-        public DbSet<MoveMachine> MoveMachines { get; set; }
-        public DbSet<MoveMachineType> MoveMachineTypes { get; set; }
-        public DbSet<PokedexDescription> PokedexDescriptions { get; set; }
-        public DbSet<PokemonAbility> PokemonAbilities { get; set; }
-        public DbSet<PokemonAttackByLevel> PokemonAttacksByLevel { get; set; }
-        public DbSet<PokemonAttackByMoveMachine> PokemonAttacksByMoveMachine { get; set; }
-        public DbSet<PokemonAttackByTutor> PokemonAttacksByTutor { get; set; }
-        public DbSet<PokemonAttack> PokemonAttacks { get; set; }
-        public DbSet<PokemonAttackType> PokemonAttackTypes { get; set; }
-        public DbSet<Pokemon> Pokemon { get; set; }
-        public DbSet<PokemonGender> PokemonGenders { get; set; }
-        public DbSet<Type> Types { get; set; }
+        public DbSet<LanguageName> LanguageNames { get; set; }
+        public DbSet<Language> Languages { get; set; }
+        public DbSet<RegionName> RegionNames { get; set; }
+        public DbSet<Region> Regions { get; set; }
+        public DbSet<VersionGroup> VersionGroups { get; set; }
+        public DbSet<Version> Versions { get; set; }
+        public DbSet<VersionName> VersionNames { get; set; }
+        public DbSet<VersionGroupRegion> VersionGroupsRegions { get; set; }
 
         public DataAccessContext(DbContextOptions<DataAccessContext> options, IConfiguration configuration) : base(options)
         {
@@ -48,7 +36,7 @@ namespace PK.DataAccess
 
             NamedEntityConfiguration(modelBuilder);
 
-            PokemonAttackTypeBaseConfiguration(modelBuilder);
+            IdentifyingEntityConfiguration(modelBuilder);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -85,18 +73,16 @@ namespace PK.DataAccess
             }
         }
 
-        private static void PokemonAttackTypeBaseConfiguration(ModelBuilder modelBuilder)
+        private static void IdentifyingEntityConfiguration(ModelBuilder modelBuilder)
         {
             foreach (var entityType in modelBuilder.Model.GetEntityTypes()
-                .Where(t => t.ClrType.IsSubclassOf(typeof(PokemonAttackTypeBase))))
+                .Where(t => t.ClrType.IsSubclassOf(typeof(IdentifyingEntity))))
             {
                 modelBuilder.Entity(
                     entityType.Name,
                     x =>
                     {
-                        x.HasOne("PokemonAttack")
-                            .WithMany()
-                            .HasForeignKey("PokemonAttackId");
+                        x.Property("Identifier").HasColumnType("varchar(50)").IsRequired();
                     });
             }
         }
