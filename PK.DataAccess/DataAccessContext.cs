@@ -26,6 +26,8 @@ namespace PK.DataAccess
             BaseEntityConfiguration(modelBuilder);
 
             NamedEntityConfiguration(modelBuilder);
+
+            IdentifyingEntityConfiguration(modelBuilder);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -58,6 +60,20 @@ namespace PK.DataAccess
                     x =>
                     {
                         x.Property("Name").HasColumnType("varchar(50)").IsRequired();
+                    });
+            }
+        }
+
+        private static void IdentifyingEntityConfiguration(ModelBuilder modelBuilder)
+        {
+            foreach (var entityType in modelBuilder.Model.GetEntityTypes()
+                .Where(t => t.ClrType.IsSubclassOf(typeof(IdentifyingEntity))))
+            {
+                modelBuilder.Entity(
+                    entityType.Name,
+                    x =>
+                    {
+                        x.Property("Identifier").HasColumnType("varchar(50)").IsRequired();
                     });
             }
         }
