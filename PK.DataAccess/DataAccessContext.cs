@@ -10,7 +10,16 @@ namespace PK.DataAccess
     {
         private readonly IConfiguration _configuration;
 
+        public DbSet<GenerationName> GenerationNames { get; set; }
         public DbSet<Generation> Generations { get; set; }
+        public DbSet<LanguageName> LanguageNames { get; set; }
+        public DbSet<Language> Languages { get; set; }
+        public DbSet<RegionName> RegionNames { get; set; }
+        public DbSet<Region> Regions { get; set; }
+        public DbSet<VersionGroup> VersionGroups { get; set; }
+        public DbSet<Version> Versions { get; set; }
+        public DbSet<VersionName> VersionNames { get; set; }
+        public DbSet<VersionGroupRegion> VersionGroupsRegions { get; set; }
 
         public DataAccessContext(DbContextOptions<DataAccessContext> options, IConfiguration configuration) : base(options)
         {
