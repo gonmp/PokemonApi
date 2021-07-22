@@ -5,9 +5,9 @@ namespace PK.Common.Models
 {
     public class PokemonGender : BaseEntity
     {
-        public Guid PokemonId { get; set; }
+        public int PokemonId { get; set; }
         public Pokemon Pokemon { get; set; }
-        public Guid GenderId { get; set; }
+        public int GenderId { get; set; }
         public Gender Gender { get; set; }
         public float Rate { get; set; }
     }

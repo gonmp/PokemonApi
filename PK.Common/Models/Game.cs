@@ -5,7 +5,7 @@ namespace PK.Common.Models
 {
     public class Game : NamedEntity
     {
-        public Guid GenerationId { get; set; }
+        public int GenerationId { get; set; }
         public Generation Generation { get; set; }
     }
 }

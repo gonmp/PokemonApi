@@ -65,7 +65,8 @@ namespace PK.DataAccess
                     entityType.Name,
                     x =>
                     {
-                        x.Property("Id").HasDefaultValueSql("NEWID()");
+                        x.HasKey("Id");
+                        x.Property("Id").ValueGeneratedNever();
                     });
             }
         }

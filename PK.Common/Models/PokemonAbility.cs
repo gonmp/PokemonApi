@@ -5,9 +5,9 @@ namespace PK.Common.Models
 {
     public class PokemonAbility : BaseEntity
     {
-        public Guid PokemonId { get; set; }
+        public int PokemonId { get; set; }
         public Pokemon Pokemon { get; set; }
-        public Guid AbilityId { get; set; }
+        public int AbilityId { get; set; }
         public Ability Ability { get; set; }
         public bool IsHiddenAbility { get; set; }
     }

@@ -9,7 +9,7 @@ namespace PK.Common.Models
 {
     public class EvolutionByLevel : BaseEntity
     {
-        public Guid EvolutionId { get; set; }
+        public int EvolutionId { get; set; }
         public Evolution Evolution { get; set; }
         public int Level { get; set; }
     }

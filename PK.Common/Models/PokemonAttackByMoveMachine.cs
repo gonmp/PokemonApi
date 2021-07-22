@@ -5,7 +5,7 @@ namespace PK.Common.Models
 {
     public class PokemonAttackByMoveMachine : PokemonAttackTypeBase
     {
-        public Guid MoveMachineId { get; set; }
+        public int MoveMachineId { get; set; }
         public MoveMachine MoveMachine { get; set; }
     }
 }
