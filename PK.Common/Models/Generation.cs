@@ -3,10 +3,9 @@ using System.Collections.Generic;
 
 namespace PK.Common.Models
 {
-    public class Generation : NamedEntity
+    public class Generation : IdentifyingEntity
     {
-        public ICollection<Pokemon> Pokemon { get; set; }
-        public ICollection<Ability> Abilities { get; set; }
-        public ICollection<Game> Games { get; set; }
+        public int MainRegionId { get; set; }
+        public Region MainRegion { get; set; }
     }
 }
