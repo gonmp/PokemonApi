@@ -17,7 +17,8 @@ namespace PK.DataAccess.Configuration
 
             builder.HasOne(x => x.Generation)
                 .WithMany()
-                .HasForeignKey(x => x.GenerationId);
+                .HasForeignKey(x => x.GenerationId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.Property(x => x.Order)
                 .HasColumnType("int");

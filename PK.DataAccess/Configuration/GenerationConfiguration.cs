@@ -12,7 +12,8 @@ namespace PK.DataAccess.Configuration
 
             builder.HasOne(x => x.MainRegion)
                 .WithMany()
-                .HasForeignKey(x => x.MainRegionId);
+                .HasForeignKey(x => x.MainRegionId)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

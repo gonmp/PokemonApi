@@ -17,11 +17,13 @@ namespace PK.DataAccess.Configuration
 
             builder.HasOne(x => x.Language)
                 .WithMany()
-                .HasForeignKey(x => x.LanguageId);
+                .HasForeignKey(x => x.LanguageId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(x => x.LocalLanguage)
                 .WithMany()
-                .HasForeignKey(x => x.LocalLanguageId);
+                .HasForeignKey(x => x.LocalLanguageId)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

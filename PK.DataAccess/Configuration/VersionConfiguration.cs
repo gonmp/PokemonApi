@@ -12,7 +12,8 @@ namespace PK.DataAccess.Configuration
 
             builder.HasOne(x => x.VersionGroup)
                 .WithMany()
-                .HasForeignKey(x => x.VersionGroupId);
+                .HasForeignKey(x => x.VersionGroupId)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

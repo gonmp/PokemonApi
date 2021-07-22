@@ -17,11 +17,13 @@ namespace PK.DataAccess.Configuration
 
             builder.HasOne(x => x.Generation)
                 .WithMany()
-                .HasForeignKey(x => x.GenerationId);
+                .HasForeignKey(x => x.GenerationId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(x => x.LocalLanguage)
                 .WithMany()
-                .HasForeignKey(x => x.LocalLanguageId);
+                .HasForeignKey(x => x.LocalLanguageId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasIndex(x => new { x.GenerationId, x.LocalLanguageId })
                 .IsUnique();
