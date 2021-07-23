@@ -5,7 +5,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using PK.Core.Interfaces;
+using PK.Core.Services.Languages;
 using PK.DataAccess;
+using System;
+using System.IO;
+using System.Reflection;
 
 namespace PK.Web
 {
@@ -29,9 +34,19 @@ namespace PK.Web
                 c.UseSqlServer(Configuration.GetConnectionString("PokemonApi"));
             });
 
-            services.AddSwaggerGen(c =>
+            services.AddCors(opt =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "PK.Web", Version = "v1" });
+                opt.AddPolicy("CorsPolicy",
+                    policy => { policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:5000/"); });
+            });
+
+            services.AddTransient<ILanguagesService, LanguagesService>();
+
+            services.AddOpenApiDocument(document =>
+            {
+                document.Version = "v1";
+                document.Title = "Pokemon API";
+                document.Description = "Restful API of Pokemon";
             });
         }
 
@@ -41,8 +56,8 @@ namespace PK.Web
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PK.Web v1"));
+                app.UseOpenApi();
+                app.UseSwaggerUi3();
             }
 
             app.UseHttpsRedirection();

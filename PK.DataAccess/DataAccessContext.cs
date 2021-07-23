@@ -68,7 +68,7 @@ namespace PK.DataAccess
                     entityType.Name,
                     x =>
                     {
-                        x.Property("Name").HasColumnType("varchar(50)").IsRequired();
+                        x.Property("Name").HasColumnType("nvarchar(50)").IsRequired();
                     });
             }
         }
@@ -82,7 +82,7 @@ namespace PK.DataAccess
                     entityType.Name,
                     x =>
                     {
-                        x.Property("Identifier").HasColumnType("varchar(50)").IsRequired();
+                        x.Property("Identifier").HasColumnType("nvarchar(50)").IsRequired();
                     });
             }
         }

@@ -9,8 +9,8 @@ using PK.DataAccess;
 namespace PK.DataAccess.Migrations
 {
     [DbContext(typeof(DataAccessContext))]
-    [Migration("20210722020749_PopulateAllInitialTables")]
-    partial class PopulateAllInitialTables
+    [Migration("20210722035839_UpdateNameAndIdentifierColumnsToNvarchar")]
+    partial class UpdateNameAndIdentifierColumnsToNvarchar
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,7 +27,7 @@ namespace PK.DataAccess.Migrations
 
                     b.Property<string>("Identifier")
                         .IsRequired()
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("MainRegionId")
                         .HasColumnType("int");
@@ -52,7 +52,7 @@ namespace PK.DataAccess.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
@@ -71,7 +71,7 @@ namespace PK.DataAccess.Migrations
 
                     b.Property<string>("Identifier")
                         .IsRequired()
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<bool>("IsOficial")
                         .HasColumnType("bit");
@@ -103,7 +103,7 @@ namespace PK.DataAccess.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
@@ -121,7 +121,7 @@ namespace PK.DataAccess.Migrations
 
                     b.Property<string>("Identifier")
                         .IsRequired()
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
@@ -138,7 +138,7 @@ namespace PK.DataAccess.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("RegionId")
                         .HasColumnType("int");
@@ -159,7 +159,7 @@ namespace PK.DataAccess.Migrations
 
                     b.Property<string>("Identifier")
                         .IsRequired()
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("VersionGroupId")
                         .HasColumnType("int");
@@ -181,7 +181,7 @@ namespace PK.DataAccess.Migrations
 
                     b.Property<string>("Identifier")
                         .IsRequired()
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("Order")
                         .HasColumnType("int");
@@ -218,7 +218,7 @@ namespace PK.DataAccess.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("VersionId")
                         .HasColumnType("int");
