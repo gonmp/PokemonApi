@@ -2,9 +2,7 @@
 using NSwag.Annotations;
 using PK.Core.Interfaces;
 using PK.Core.Services.Languages.Responses;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
