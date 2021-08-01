@@ -28,6 +28,7 @@ namespace PK.Core.Services.Languages
                                         Name = x.Name,
                                         Code = x.Language.Iso639
                                     })
+                                    .OrderBy(x => x.Name)
                                     .ToListAsync();
         }
     }
