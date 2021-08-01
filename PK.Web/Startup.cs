@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PK.Core.Interfaces;
 using PK.Core.Services.Languages;
+using PK.Core.Services.Versions;
 using PK.DataAccess;
 
 namespace PK.Web
@@ -36,6 +37,7 @@ namespace PK.Web
             });
 
             services.AddTransient<ILanguagesService, LanguagesService>();
+            services.AddTransient<IVersionsService, VersionsService>();
 
             services.AddOpenApiDocument(document =>
             {
