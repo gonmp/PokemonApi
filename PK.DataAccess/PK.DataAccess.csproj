@@ -85,6 +85,18 @@
       <TargetPath>MoveDamageClassProses.txt</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="SeedData\Types.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Types.csv</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+<ItemGroup>
+    <ContentWithTargetPath Include="SeedData\TypeNames.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>TypeNames.csv</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\PK.Common\PK.Common.csproj" />
