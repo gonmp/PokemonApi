@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace PK.Web.Controllers
 {
     [ApiController]
-    [Route("{language}/[Controller]")]
+    [Route("[Controller]")]
     public class VersionsController : ControllerBase
     {
         private readonly IVersionsService _versionsService;
@@ -30,7 +30,7 @@ namespace PK.Web.Controllers
         [SwaggerResponse(HttpStatusCode.OK, typeof(IEnumerable<GetVersionsResponse>), Description = "Ok")]
         [SwaggerResponse(HttpStatusCode.InternalServerError, typeof(ValidationProblemDetails), Description = "Error while processing the request")]
         [SwaggerResponse(HttpStatusCode.Unauthorized, null, Description = "API Key not valid")]
-        public async Task<IActionResult> GetLanguagesAsync(string language)
+        public async Task<IActionResult> GetLanguagesAsync(string language = "en")
         {
             return Ok(await _versionsService.GetVersions(language));
         }
