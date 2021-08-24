@@ -121,6 +121,18 @@
       <TargetPath>SuperContestEffectProses.csv</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="SeedData\MoveTargets.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>MoveTargets.csv</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="SeedData\MoveTargetProses.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>MoveTargetProses.txt</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\PK.Common\PK.Common.csproj" />
