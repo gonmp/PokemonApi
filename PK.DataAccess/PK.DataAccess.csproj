@@ -133,6 +133,18 @@
       <TargetPath>MoveTargetProses.txt</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="SeedData\MoveMetaCategories.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>MoveMetaCategories.csv</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="SeedData\MoveMetaCategoryProses.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>MoveMetaCategoryProses.csv</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\PK.Common\PK.Common.csproj" />
