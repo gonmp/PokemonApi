@@ -91,15 +91,26 @@
       <TargetPath>Types.csv</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
-<ItemGroup>
+  <ItemGroup>
     <ContentWithTargetPath Include="SeedData\TypeNames.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>TypeNames.csv</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="SeedData\Stats.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Stats.csv</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="SeedData\StatNames.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>StatNames.csv</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\PK.Common\PK.Common.csproj" />
   </ItemGroup>
-
 </Project>
