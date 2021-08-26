@@ -230,6 +230,12 @@
       <TargetPath>MoveNames.csv</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="SeedData\MoveFlagMaps.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>MoveFlagMaps.csv</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\PK.Common\PK.Common.csproj" />
