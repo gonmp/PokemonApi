@@ -29,7 +29,7 @@ namespace PK.DataAccess.Configuration
                 .HasColumnType("nvarchar(100)");
 
             builder.Property(x => x.Effect)
-                .HasColumnType("nvarchar(150)");
+                .HasColumnType("nvarchar(400)");
         }
     }
 }
