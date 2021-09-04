@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace PK.DataAccess.Migrations
 {
+    [ExcludeFromCodeCoverage]
     public partial class CreateMoveEntitiesTables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
