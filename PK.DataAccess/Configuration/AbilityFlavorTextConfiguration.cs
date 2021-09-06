@@ -31,7 +31,7 @@ namespace PK.DataAccess.Configuration
                 .OnDelete(DeleteBehavior.NoAction);
 
             builder.Property(x => x.FlavorText)
-                .HasColumnType("nvarchar(100)");
+                .HasColumnType("nvarchar(200)");
         }
     }
 }
