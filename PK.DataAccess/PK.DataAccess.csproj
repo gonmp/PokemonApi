@@ -236,6 +236,30 @@
       <TargetPath>MoveFlagMaps.csv</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="SeedData\Abilities.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Abilities.csv</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="SeedData\AbilityFlavorTexts.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>AbilityFlavorTexts.txt</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="SeedData\AbilityNames.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>AbilityNames.csv</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="SeedData\AbilityProses.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>AbilityProses.csv</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\PK.Common\PK.Common.csproj" />
