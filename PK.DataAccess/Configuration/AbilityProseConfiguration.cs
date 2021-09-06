@@ -26,7 +26,7 @@ namespace PK.DataAccess.Configuration
                 .OnDelete(DeleteBehavior.NoAction);
 
             builder.Property(x => x.ShortEffect)
-                .HasColumnType("nvarchar(300)");
+                .HasColumnType("nvarchar(400)");
 
             builder.Property(x => x.Effect)
                 .HasColumnType("nvarchar(max)");

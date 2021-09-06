@@ -4,29 +4,29 @@ using System.Diagnostics.CodeAnalysis;
 namespace PK.DataAccess.Migrations
 {
     [ExcludeFromCodeCoverage]
-    public partial class IncreaseEffectLengthOfAbilityProse : Migration
+    public partial class IncreaseShortEffectLengthOfAbilityProse : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(
-                name: "Effect",
+                name: "ShortEffect",
                 table: "AbilityProses",
-                type: "nvarchar(max)",
+                type: "nvarchar(400)",
                 nullable: true,
                 oldClrType: typeof(string),
-                oldType: "nvarchar(1000)",
+                oldType: "nvarchar(300)",
                 oldNullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(
-                name: "Effect",
+                name: "ShortEffect",
                 table: "AbilityProses",
-                type: "nvarchar(1000)",
+                type: "nvarchar(300)",
                 nullable: true,
                 oldClrType: typeof(string),
-                oldType: "nvarchar(max)",
+                oldType: "nvarchar(400)",
                 oldNullable: true);
         }
     }
