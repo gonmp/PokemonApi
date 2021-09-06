@@ -26,10 +26,10 @@ namespace PK.DataAccess.Configuration
                 .OnDelete(DeleteBehavior.NoAction);
 
             builder.Property(x => x.ShortEffect)
-                .HasColumnType("nvarchar(100)");
+                .HasColumnType("nvarchar(300)");
 
             builder.Property(x => x.Effect)
-                .HasColumnType("nvarchar(600)");
+                .HasColumnType("nvarchar(1000)");
         }
     }
 }
