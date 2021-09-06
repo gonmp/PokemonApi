@@ -4,29 +4,29 @@ using System.Diagnostics.CodeAnalysis;
 namespace PK.DataAccess.Migrations
 {
     [ExcludeFromCodeCoverage]
-    public partial class IncreseFlavorTextLengthOfAbilityFlavorText : Migration
+    public partial class IncreseEffectLengthOfAbilityProse : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(
-                name: "FlavorText",
-                table: "AbilityFlavorTexts",
-                type: "nvarchar(200)",
+                name: "Effect",
+                table: "AbilityProses",
+                type: "nvarchar(600)",
                 nullable: true,
                 oldClrType: typeof(string),
-                oldType: "nvarchar(100)",
+                oldType: "nvarchar(400)",
                 oldNullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(
-                name: "FlavorText",
-                table: "AbilityFlavorTexts",
-                type: "nvarchar(100)",
+                name: "Effect",
+                table: "AbilityProses",
+                type: "nvarchar(400)",
                 nullable: true,
                 oldClrType: typeof(string),
-                oldType: "nvarchar(200)",
+                oldType: "nvarchar(600)",
                 oldNullable: true);
         }
     }
