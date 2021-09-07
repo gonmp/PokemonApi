@@ -8,7 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace PK.Web.Controllers
+namespace PK.Api.Controllers
 {
     [ApiController]
     [Route("[Controller]")]

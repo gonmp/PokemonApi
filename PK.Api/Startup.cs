@@ -9,7 +9,7 @@ using PK.Core.Services.Languages;
 using PK.Core.Services.Versions;
 using PK.DataAccess;
 
-namespace PK.Web
+namespace PK.Api
 {
     public class Startup
     {

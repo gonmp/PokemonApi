@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31402.337
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PK.Web", "PK.Web\PK.Web.csproj", "{2D1F6815-744F-45C1-8568-4917474EA436}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PK.Api", "PK.Api\PK.Api.csproj", "{2D1F6815-744F-45C1-8568-4917474EA436}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PK.DataAccess", "PK.DataAccess\PK.DataAccess.csproj", "{ADC2FC94-3062-403A-8C12-E015D5040E3C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PK.Common", "PK.Common\PK.Common.csproj", "{073B58D8-CD8E-48AA-B4AB-B1F6CB64C3A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PK.Core", "PK.Core\PK.Core.csproj", "{C5B72E9B-2EFB-4C7C-BD3B-C16832DEBC99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PK.Core", "PK.Core\PK.Core.csproj", "{C5B72E9B-2EFB-4C7C-BD3B-C16832DEBC99}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
