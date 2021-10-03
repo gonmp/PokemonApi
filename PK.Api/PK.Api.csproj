@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <UserSecretsId>b8f47a34-97e7-41a5-a0a0-f75f9c9f4478</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -14,6 +15,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.14" />
     <PackageReference Include="NSwag.Annotations" Version="13.12.0" />
     <PackageReference Include="NSwag.AspNetCore" Version="13.12.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
@@ -23,5 +25,4 @@
     <ProjectReference Include="..\PK.Core\PK.Core.csproj" />
     <ProjectReference Include="..\PK.DataAccess\PK.DataAccess.csproj" />
   </ItemGroup>
-
 </Project>
