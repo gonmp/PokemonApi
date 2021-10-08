@@ -1,0 +1,57 @@
+version: '3.6'
+
+services:
+
+  pk-sqlserver:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    env_file: 
+      - 'shared_variables.env'
+    ports:
+      - 50005:1433
+    networks:
+      - pk_network_local      
+      
+  pk-cloudbeaver:
+    image: dbeaver/cloudbeaver:latest
+    env_file: 
+      - 'shared_variables.env'
+    ports:
+      - 50010:8978 
+    volumes:
+      - ./data-sources.json:/opt/cloudbeaver/workspace/GlobalConfiguration/.dbeaver/data-sources2.json
+    networks:
+      - pk_network_local
+
+  pk-migrations:
+    build:
+      context: ../.
+      dockerfile: PK.DataAccess/Dockerfile
+    depends_on:
+      - pk-sqlserver
+    env_file:
+      - 'shared_variables.env'
+    entrypoint: /bin/sh
+    command:
+      - '-c'
+      - '/bin/sleep 30 && /flyway/flyway migrate'
+      - '/opt/mssql-tools/bin/sqlcmd -S pk-sqlserver,1433 -U sa -P Password123456! -i init.sql'
+    networks:
+      - pk_network_local
+
+  pk-api:
+    build:
+      context: ../.
+      dockerfile: PK.Api/Dockerfile
+    depends_on:
+      - pk-sqlserver
+      - pk-migrations
+    env_file: 
+      - 'shared_variables.env'
+    ports:
+      - 50000:80
+    networks:
+      - pk_network_local
+
+networks:
+  pk_network_local:
+    name: pk_network_local
