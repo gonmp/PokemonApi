@@ -1,11 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using NSwag.Annotations;
-using PK.Core.Interfaces;
-using PK.Core.Services.Versions.Responses;
+using PK.Core.Features.Versions;
+using PK.Core.Features.Versions.Responses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace PK.Api.Controllers
@@ -14,11 +16,11 @@ namespace PK.Api.Controllers
     [Route("[Controller]")]
     public class VersionsController : ControllerBase
     {
-        private readonly IVersionsService _versionsService;
+        private readonly IMediator _mediator;
 
-        public VersionsController(IVersionsService versionsService)
+        public VersionsController(IMediator mediator)
         {
-            _versionsService = versionsService;
+            _mediator = mediator;
         }
 
         [HttpGet]
@@ -27,12 +29,12 @@ namespace PK.Api.Controllers
             summary: "List available languages",
             description: "This endpoint returns a list of available languages"
         )]
-        [SwaggerResponse(HttpStatusCode.OK, typeof(IEnumerable<GetVersionsResponse>), Description = "Ok")]
+        [SwaggerResponse(HttpStatusCode.OK, typeof(IEnumerable<ListVersionsResponse>), Description = "Ok")]
         [SwaggerResponse(HttpStatusCode.InternalServerError, typeof(ValidationProblemDetails), Description = "Error while processing the request")]
         [SwaggerResponse(HttpStatusCode.Unauthorized, null, Description = "API Key not valid")]
-        public async Task<IActionResult> GetLanguagesAsync(string language = "en")
+        public async Task<IActionResult> GetLanguagesAsync([FromQuery] ListVersions.Command command, CancellationToken cancellationToken)
         {
-            return Ok(await _versionsService.GetVersions(language));
+            return Ok(await _mediator.Send(command, cancellationToken));
         }
     }
 }

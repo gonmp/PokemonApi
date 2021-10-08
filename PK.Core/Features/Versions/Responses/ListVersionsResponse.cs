@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PK.Core.Services.Versions.Responses
+namespace PK.Core.Features.Versions.Responses
 {
-    public class GetVersionsResponse
+    public class ListVersionsResponse
     {
         public string Name { get; set; }
     }

@@ -1,6 +1,6 @@
-﻿namespace PK.Core.Services.Languages.Responses
+﻿namespace PK.Core.Features.Languages.Responses
 {
-    public class GetLanguagesResponse
+    public class ListLanguagesResponse
     {
         public string Name { get; set; }
         public string Code { get; set; }

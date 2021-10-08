@@ -1,13 +1,13 @@
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using PK.Core.Interfaces;
-using PK.Core.Services.Languages;
-using PK.Core.Services.Versions;
 using PK.DataAccess;
+using System;
+using System.Reflection;
 
 namespace PK.Api
 {
@@ -36,8 +36,7 @@ namespace PK.Api
                     policy => { policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin(); });
             });
 
-            services.AddTransient<ILanguagesService, LanguagesService>();
-            services.AddTransient<IVersionsService, VersionsService>();
+            services.AddMediatR(AppDomain.CurrentDomain.Load("PK.Core"));
 
             services.AddOpenApiDocument(document =>
             {
