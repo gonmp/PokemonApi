@@ -1,6 +1,6 @@
 FROM flyway/flyway:latest-alpine
 
-ADD PK.DataAccess/Migrations/*.sql /flyway/sql/
+ADD PK.DataAccess/FlywayMigrations/*.sql /flyway/sql/
 
 # It is required to setup Environment Variables at Pod level
 # https://flywaydb.org/documentation/envvars
