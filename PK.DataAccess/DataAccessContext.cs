@@ -21,9 +21,8 @@ namespace PK.DataAccess
         public DbSet<VersionName> VersionNames { get; set; }
         public DbSet<VersionGroupRegion> VersionGroupsRegions { get; set; }
 
-        public DataAccessContext(DbContextOptions<DataAccessContext> options, IConfiguration configuration) : base(options)
+        public DataAccessContext(DbContextOptions<DataAccessContext> options) : base(options)
         {
-            _configuration = configuration;
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -37,11 +36,6 @@ namespace PK.DataAccess
             NamedEntityConfiguration(modelBuilder);
 
             IdentifyingEntityConfiguration(modelBuilder);
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(_configuration.GetConnectionString("PokemonApi"));
         }
 
         private static void BaseEntityConfiguration(ModelBuilder modelBuilder)
