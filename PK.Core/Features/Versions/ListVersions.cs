@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
+using NJsonSchema.Annotations;
 using PK.Core.Features.Versions.Responses;
 using PK.DataAccess;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace PK.Core.Features.Versions
 {
     public class ListVersions
     {
+        [JsonSchema("ListVersionsCommand")]
         public class Command : IRequest<IEnumerable<ListVersionsResponse>>
         {
             [DefaultValue("en")]

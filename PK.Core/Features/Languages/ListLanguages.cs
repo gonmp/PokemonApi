@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
+using NJsonSchema.Annotations;
 using PK.Core.Features.Languages.Responses;
 using PK.DataAccess;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace PK.Core.Features.Languages
 {
     public class ListLanguages
     {
+        [JsonSchema("ListLanguagesCommand")]
         public class Command : IRequest<IEnumerable<ListLanguagesResponse>>
         {
             [DefaultValue("en")]
