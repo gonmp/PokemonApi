@@ -42,15 +42,10 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"gonmp_PokemonApi" /o:"gonmp" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet restore
-          dotnet build --no-restore
-          dotnet test "./PK.UnitTests/PK.UnitTests.csproj" `
-          --collect:"XPlat Code Coverage" `
-          --results-directory TestResults/ `
-          --logger "trx;LogFileName=unittests.trx" `
-          --no-build `
-          --no-restore `
-          --configuration release `
-          -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"gonmp_PokemonApi" /o:"gonmp" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.opencover.reportsPaths=PK.UnitTests/coverage.opencover.xml
+          dotnet tool install --global dotnet-sonarscanner
+          dotnet tool install --global coverlet.console --version "1.7.2"
+          dotnet test -v n /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+          dotnet build-server shutdown
+          dotnet build
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
