@@ -9,7 +9,16 @@ namespace PK.DataAccess.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.InsertDataFromCsv("Languages", "Languages.csv");
+            migrationBuilder.InsertDataWithBreakLines("Languages",
+                new string[]
+                {
+                    "Id",
+                    "Iso639",
+                    "Iso3166",
+                    "IsOficial",
+                    "Order",
+                    "Identifier"
+                }, "Languages.csv");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

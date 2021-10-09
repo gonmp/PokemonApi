@@ -1,5 +1,6 @@
 ﻿using LumenWorks.Framework.IO.Csv;
 using Microsoft.EntityFrameworkCore.Migrations;
+using PK.Common.Extensions;
 using System;
 using System.Data;
 using System.IO;
@@ -52,7 +53,7 @@ namespace PK.DataAccess.Extensions
                 migrationBuilder.InsertData(
                     table: tablaName,
                     columns: columnNames,
-                    values: row.ItemArray
+                    values: row.ItemArray.ParseStringToBool()
                     );
             }
         }

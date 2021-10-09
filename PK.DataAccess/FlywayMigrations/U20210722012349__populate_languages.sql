@@ -1,0 +1,9 @@
+﻿BEGIN TRANSACTION;
+GO
+
+DELETE FROM [dbo].[Languages]
+GO
+
+COMMIT;
+GO
+

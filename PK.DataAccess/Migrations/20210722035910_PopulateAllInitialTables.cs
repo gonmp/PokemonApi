@@ -9,15 +9,72 @@ namespace PK.DataAccess.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.InsertDataFromCsv("LanguageNames", "LanguageNames.csv");
-            migrationBuilder.InsertDataFromCsv("Regions", "Regions.csv");
-            migrationBuilder.InsertDataFromCsv("RegionNames", "RegionNames.csv");
-            migrationBuilder.InsertDataFromCsv("Generations", "Generations.csv");
-            migrationBuilder.InsertDataFromCsv("GenerationNames", "GenerationNames.csv");
-            migrationBuilder.InsertDataFromCsv("VersionGroups", "VersionGroups.csv");
-            migrationBuilder.InsertDataFromCsv("Versions", "Versions.csv");
-            migrationBuilder.InsertDataFromCsv("VersionNames", "VersionNames.csv");
-            migrationBuilder.InsertDataFromCsv("VersionGroupsRegions", "VersionGroupsRegions.csv");
+            migrationBuilder.InsertDataWithBreakLines("LanguageNames",
+                new string[]
+                {
+                    "Id",
+                    "LanguageId",
+                    "LocalLanguageId",
+                    "Name"
+                }, "LanguageNames.csv");
+            migrationBuilder.InsertDataWithBreakLines("Regions",
+                new string[]
+                {
+                    "Id",
+                    "Identifier"
+                }, "Regions.csv");
+            migrationBuilder.InsertDataWithBreakLines("RegionNames",
+                new string[]
+                {
+                    "Id",
+                    "RegionId",
+                    "LocalLanguageId",
+                    "Name"
+                }, "RegionNames.csv");
+            migrationBuilder.InsertDataWithBreakLines("Generations",
+                new string[]
+                {
+                    "Id",
+                    "MainRegionId",
+                    "Identifier"
+                }, "Generations.csv");
+            migrationBuilder.InsertDataWithBreakLines("GenerationNames",
+                new string[]
+                {
+                    "Id",
+                    "GenerationId",
+                    "LocalLanguageId",
+                    "Name"
+                }, "GenerationNames.csv");
+            migrationBuilder.InsertDataWithBreakLines("VersionGroups",
+                new string[]
+                {
+                    "Id",
+                    "GenerationId",
+                    "Order",
+                    "Identifier"
+                }, "VersionGroups.csv");
+            migrationBuilder.InsertDataWithBreakLines("Versions",
+                new string[]
+                {
+                    "Id",
+                    "VersionGroupId",
+                    "Identifier"
+                }, "Versions.csv");
+            migrationBuilder.InsertDataWithBreakLines("VersionNames",
+                new string[]
+                {
+                    "Id",
+                    "VersionId",
+                    "LocalLanguageId",
+                    "Name"
+                }, "VersionNames.csv");
+            migrationBuilder.InsertDataWithBreakLines("VersionGroupsRegions",
+                new string[]
+                {
+                    "VersionGroupId",
+                    "RegionId"
+                }, "VersionGroupsRegions.csv");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

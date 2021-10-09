@@ -1,8 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microsoft.Extensions.Configuration;
 using PK.Common.Models;
 using PK.Common.Models.Base;
+using System;
 using System.Linq;
+using Version = PK.Common.Models.Version;
 
 namespace PK.DataAccess
 {
