@@ -22,6 +22,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04.Common", "04.Common", "{644A3B1A-23A8-4781-ADEC-5613A22B6846}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05.Tests", "05.Tests", "{CEA1519E-D224-4277-9A78-3696B4466914}"
+	ProjectSection(SolutionItems) = preProject
+		PK.UnitTests.ruleset = PK.UnitTests.ruleset
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
