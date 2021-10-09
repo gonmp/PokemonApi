@@ -45,5 +45,12 @@ jobs:
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"gonmp_PokemonApi" /o:"gonmp" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
           dotnet restore
           dotnet build --no-restore
-          dotnet test --no-build --verbosity normal
+          dotnet test "./PK.UnitTests/PK.UnitTests.csproj" `
+          --collect:"XPlat Code Coverage" `
+          --results-directory TestResults/ `
+          --logger "trx;LogFileName=unittests.trx" `
+          --no-build `
+          --no-restore `
+          --configuration release `
+          -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
