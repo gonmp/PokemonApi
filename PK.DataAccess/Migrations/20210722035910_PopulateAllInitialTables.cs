@@ -9,7 +9,7 @@ namespace PK.DataAccess.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.InsertDataWithBreakLines("LanguageNames",
+            migrationBuilder.InsertDataFromCsv("LanguageNames",
                 new string[]
                 {
                     "Id",
@@ -17,13 +17,13 @@ namespace PK.DataAccess.Migrations
                     "LocalLanguageId",
                     "Name"
                 }, "LanguageNames.csv");
-            migrationBuilder.InsertDataWithBreakLines("Regions",
+            migrationBuilder.InsertDataFromCsv("Regions",
                 new string[]
                 {
                     "Id",
                     "Identifier"
                 }, "Regions.csv");
-            migrationBuilder.InsertDataWithBreakLines("RegionNames",
+            migrationBuilder.InsertDataFromCsv("RegionNames",
                 new string[]
                 {
                     "Id",
@@ -31,14 +31,14 @@ namespace PK.DataAccess.Migrations
                     "LocalLanguageId",
                     "Name"
                 }, "RegionNames.csv");
-            migrationBuilder.InsertDataWithBreakLines("Generations",
+            migrationBuilder.InsertDataFromCsv("Generations",
                 new string[]
                 {
                     "Id",
                     "MainRegionId",
                     "Identifier"
                 }, "Generations.csv");
-            migrationBuilder.InsertDataWithBreakLines("GenerationNames",
+            migrationBuilder.InsertDataFromCsv("GenerationNames",
                 new string[]
                 {
                     "Id",
@@ -46,7 +46,7 @@ namespace PK.DataAccess.Migrations
                     "LocalLanguageId",
                     "Name"
                 }, "GenerationNames.csv");
-            migrationBuilder.InsertDataWithBreakLines("VersionGroups",
+            migrationBuilder.InsertDataFromCsv("VersionGroups",
                 new string[]
                 {
                     "Id",
@@ -54,14 +54,14 @@ namespace PK.DataAccess.Migrations
                     "Order",
                     "Identifier"
                 }, "VersionGroups.csv");
-            migrationBuilder.InsertDataWithBreakLines("Versions",
+            migrationBuilder.InsertDataFromCsv("Versions",
                 new string[]
                 {
                     "Id",
                     "VersionGroupId",
                     "Identifier"
                 }, "Versions.csv");
-            migrationBuilder.InsertDataWithBreakLines("VersionNames",
+            migrationBuilder.InsertDataFromCsv("VersionNames",
                 new string[]
                 {
                     "Id",
@@ -69,7 +69,7 @@ namespace PK.DataAccess.Migrations
                     "LocalLanguageId",
                     "Name"
                 }, "VersionNames.csv");
-            migrationBuilder.InsertDataWithBreakLines("VersionGroupsRegions",
+            migrationBuilder.InsertDataFromCsv("VersionGroupsRegions",
                 new string[]
                 {
                     "VersionGroupId",

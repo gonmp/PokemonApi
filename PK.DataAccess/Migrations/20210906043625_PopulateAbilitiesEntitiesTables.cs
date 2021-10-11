@@ -9,10 +9,35 @@ namespace PK.DataAccess.Migrations
         [ExcludeFromCodeCoverage]
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.InsertDataFromCsv("Abilities", "Abilities.csv");
-            migrationBuilder.InsertDataFromCsvWithTabSeparator("AbilityFlavorTexts", "AbilityFlavorTexts.txt");
-            migrationBuilder.InsertDataFromCsv("AbilityNames", "AbilityNames.csv");
-            migrationBuilder.InsertDataWithBreakLines("AbilityProses",
+            migrationBuilder.InsertDataFromCsv("Abilities",
+                new string[]
+                {
+                    "Id",
+                    "GenerationId",
+                    "IsMainSeries",
+                    "Identifier"
+                },
+                "Abilities.csv");
+            migrationBuilder.InsertDataFromCsv("AbilityFlavorTexts",
+                new string[]
+                {
+                    "Id",
+                    "AbilityId",
+                    "VersionGroupId",
+                    "LocalLanguageId",
+                    "FlavorText"
+                },
+                "AbilityFlavorTexts.csv");
+            migrationBuilder.InsertDataFromCsv("AbilityNames",
+                new string[]
+                {
+                    "Id",
+                    "AbilityId",
+                    "LocalLanguageId",
+                    "Name"
+                },
+                "AbilityNames.csv");
+            migrationBuilder.InsertDataFromCsv("AbilityProses",
                 new string[]
                 {
                     "Id",

@@ -9,8 +9,22 @@ namespace PK.DataAccess.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.InsertDataFromCsv("SuperContestEffects", "SuperContestEffects.csv");
-            migrationBuilder.InsertDataFromCsv("SuperContestEffectProses", "SuperContestEffectProses.csv");
+            migrationBuilder.InsertDataFromCsv("SuperContestEffects",
+                new string[]
+                {
+                    "Id",
+                    "Appeal"
+                },
+                "SuperContestEffects.csv");
+            migrationBuilder.InsertDataFromCsv("SuperContestEffectProses",
+                new string[]
+                {
+                    "Id",
+                    "SuperContestEffectId",
+                    "LocalLanguageId",
+                    "FlavorText"
+                },
+                "SuperContestEffectProses.csv");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

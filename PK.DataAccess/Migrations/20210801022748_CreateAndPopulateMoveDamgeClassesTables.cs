@@ -56,8 +56,23 @@ namespace PK.DataAccess.Migrations
                 table: "MoveDamageClassProses",
                 column: "MoveDamageClassId");
 
-            migrationBuilder.InsertDataFromCsv("MoveDamageClasses", "MoveDamageClasses.csv");
-            migrationBuilder.InsertDataFromCsvWithTabSeparator("MoveDamageClassProses", "MoveDamageClassProses.txt");
+            migrationBuilder.InsertDataFromCsv("MoveDamageClasses",
+                new string[]
+                {
+                    "Id",
+                    "Identifier"
+                },
+                "MoveDamageClasses.csv");
+            migrationBuilder.InsertDataFromCsv("MoveDamageClassProses",
+                new string[]
+                {
+                    "Id",
+                    "MoveDamageClassId",
+                    "LocalLanguageId",
+                    "Description",
+                    "Name"
+                },
+                "MoveDamageClassProses.csv");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

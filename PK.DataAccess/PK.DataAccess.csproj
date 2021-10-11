@@ -81,9 +81,9 @@
     </ContentWithTargetPath>
   </ItemGroup>
   <ItemGroup>
-    <ContentWithTargetPath Include="SeedData\MoveDamageClassProses.txt">
+    <ContentWithTargetPath Include="SeedData\MoveDamageClassProses.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>MoveDamageClassProses.txt</TargetPath>
+      <TargetPath>MoveDamageClassProses.csv</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
   <ItemGroup>
@@ -129,9 +129,9 @@
     </ContentWithTargetPath>
   </ItemGroup>
   <ItemGroup>
-    <ContentWithTargetPath Include="SeedData\MoveTargetProses.txt">
+    <ContentWithTargetPath Include="SeedData\MoveTargetProses.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>MoveTargetProses.txt</TargetPath>
+      <TargetPath>MoveTargetProses.csv</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
   <ItemGroup>
@@ -165,9 +165,9 @@
     </ContentWithTargetPath>
   </ItemGroup>
   <ItemGroup>
-    <ContentWithTargetPath Include="SeedData\MoveFlagProses.txt">
+    <ContentWithTargetPath Include="SeedData\MoveFlagProses.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>MoveFlagProses.txt</TargetPath>
+      <TargetPath>MoveFlagProses.csv</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
   <ItemGroup>
@@ -213,9 +213,9 @@
     </ContentWithTargetPath>
   </ItemGroup>
   <ItemGroup>
-    <ContentWithTargetPath Include="SeedData\ContestEffectProses.txt">
+    <ContentWithTargetPath Include="SeedData\ContestEffectProses.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>ContestEffectProses.txt</TargetPath>
+      <TargetPath>ContestEffectProses.csv</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
   <ItemGroup>
@@ -243,9 +243,9 @@
     </ContentWithTargetPath>
   </ItemGroup>
   <ItemGroup>
-    <ContentWithTargetPath Include="SeedData\AbilityFlavorTexts.txt">
+    <ContentWithTargetPath Include="SeedData\AbilityFlavorTexts.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>AbilityFlavorTexts.txt</TargetPath>
+      <TargetPath>AbilityFlavorTexts.csv</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
   <ItemGroup>

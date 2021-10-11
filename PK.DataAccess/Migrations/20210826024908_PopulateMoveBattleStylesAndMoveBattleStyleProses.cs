@@ -9,8 +9,22 @@ namespace PK.DataAccess.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.InsertDataFromCsv("MoveBattleStyles", "MoveBattleStyles.csv");
-            migrationBuilder.InsertDataFromCsv("MoveBattleStyleProses", "MoveBattleStyleProses.csv");
+            migrationBuilder.InsertDataFromCsv("MoveBattleStyles",
+                new string[]
+                {
+                    "Id",
+                    "Identifier"
+                },
+                "MoveBattleStyles.csv");
+            migrationBuilder.InsertDataFromCsv("MoveBattleStyleProses",
+                new string[]
+                {
+                    "Id",
+                    "MoveBattleStyleId",
+                    "LocalLanguageId",
+                    "Name"
+                },
+                "MoveBattleStyleProses.csv");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

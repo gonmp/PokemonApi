@@ -77,8 +77,24 @@ namespace PK.DataAccess.Migrations
                 table: "Types",
                 column: "GenerationId");
 
-            migrationBuilder.InsertDataFromCsv("Types", "Types.csv");
-            migrationBuilder.InsertDataFromCsv("TypeNames", "TypeNames.csv");
+            migrationBuilder.InsertDataFromCsv("Types",
+                new string[]
+                {
+                    "Id",
+                    "GenerationId",
+                    "DamageClassId",
+                    "Identifier"
+                },
+                "Types.csv");
+            migrationBuilder.InsertDataFromCsv("TypeNames",
+                new string[]
+                {
+                    "Id",
+                    "TypeId",
+                    "LocalLanguageId",
+                    "Name"
+                },
+                "TypeNames.csv");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

@@ -9,16 +9,22 @@ namespace PK.DataAccess.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.InsertDataFromCsv("MoveEffects", "MoveEffects.csv");
-            var colums = new string[]
-            {
-                "Id",
-                "MoveEffectId",
-                "LocalLanguageId",
-                "ShortEffect",
-                "Effect"
-            };
-            migrationBuilder.InsertDataWithBreakLines("MoveEffectProses", colums, "MoveEffectProses.csv");
+            migrationBuilder.InsertDataFromCsv("MoveEffects",
+                new string[]
+                {
+                    "Id"
+                },
+                "MoveEffects.csv");
+            migrationBuilder.InsertDataFromCsv("MoveEffectProses",
+                new string[]
+                {
+                    "Id",
+                    "MoveEffectId",
+                    "LocalLanguageId",
+                    "ShortEffect",
+                    "Effect"
+                },
+                "MoveEffectProses.csv");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

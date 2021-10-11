@@ -9,7 +9,13 @@ namespace PK.DataAccess.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.InsertDataFromCsv("MoveFlagMaps", "MoveFlagMaps.csv");
+            migrationBuilder.InsertDataFromCsv("MoveFlagMaps",
+                new string[]
+                {
+                    "MoveId",
+                    "MoveFlagId"
+                },
+                "MoveFlagMaps.csv");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

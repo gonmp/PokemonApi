@@ -9,7 +9,7 @@ namespace PK.DataAccess.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.InsertDataWithBreakLines("Languages",
+            migrationBuilder.InsertDataFromCsv("Languages",
                 new string[]
                 {
                     "Id",

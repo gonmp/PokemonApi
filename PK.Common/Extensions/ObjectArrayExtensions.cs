@@ -10,7 +10,7 @@ namespace PK.Common.Extensions
     {
         public static object[] ParseStringToBool(this object[] array)
         {
-            return array.Select(x => bool.TryParse((string)x, out bool result) ? result : x).ToArray();
+            return array.Select(x => bool.TryParse(Convert.ToString(x), out bool result) ? result : (Convert.ToString(x) != string.Empty ? x : null)).ToArray();
         }
     }
 }
