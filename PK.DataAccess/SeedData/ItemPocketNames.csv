@@ -1,0 +1,25 @@
+Id,ItemPocketId,LocalLanguageId,Name
+1,1,5,Objets
+2,1,7,Objetos
+3,1,9,Items
+4,2,5,Médicaments
+5,2,7,Medicinas
+6,2,9,Medicine
+7,3,5,Balls
+8,3,7,Bolas
+9,3,9,Poké Balls
+10,4,5,CT & CS
+11,4,7,MT y MO
+12,4,9,TMs and HMs
+13,5,5,Baies
+14,5,7,Bayas
+15,5,9,Berries
+16,6,5,Lettres
+17,6,7,Correo
+18,6,9,Mail
+19,7,5,Objets de combat
+20,7,7,Objetos de combate
+21,7,9,Battle Items
+22,8,5,Object rares
+23,8,7,Objetos clave
+24,8,9,Key Items
