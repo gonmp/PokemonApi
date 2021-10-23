@@ -1,0 +1,12 @@
+﻿BEGIN TRANSACTION;
+GO
+
+DELETE FROM [dbo].[MoveFlagProses]
+GO
+
+DELETE FROM [dbo].[MoveFlags]
+GO
+
+COMMIT;
+GO
+

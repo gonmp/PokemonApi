@@ -1,0 +1,12 @@
+﻿BEGIN TRANSACTION;
+GO
+
+DELETE FROM [dbo].[StatNames]
+GO
+
+DELETE FROM [dbo].[Stats]
+GO
+
+COMMIT;
+GO
+

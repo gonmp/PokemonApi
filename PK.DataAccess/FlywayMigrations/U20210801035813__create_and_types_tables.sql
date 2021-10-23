@@ -1,0 +1,12 @@
+﻿BEGIN TRANSACTION;
+GO
+
+DROP TABLE [TypeNames];
+GO
+
+DROP TABLE [Types];
+GO
+
+COMMIT;
+GO
+
